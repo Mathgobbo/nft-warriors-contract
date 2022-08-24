@@ -18,24 +18,24 @@ contract RpgWarriors is ERC721Enumerable,ERC721URIStorage  {
 
   mapping (uint256 => WarriorsLibrary.Warrior) warriors;
 
-  event NewWarriorMinted (address sender, uint tokenId, WarriorsLibrary.Warrior warrior);
-  event WarriorAddedExperience (address sender, uint tokenId, WarriorsLibrary.Warrior warrior);
+  // EVENTS
+  event NewWarriorMinted (address sender, uint tokenId);
+  event WarriorAddedExperience (address sender, uint tokenId);
 
   constructor() ERC721 ("RpgWarriorsTest", "RPGWT") {}
 
-  function createWarrior(string memory name, string memory description, string memory image, WarriorsLibrary.WarriorRaces race ) public {
+  function createWarrior(string memory name, string memory description, string memory image, WarriorsLibrary.WarriorRaces race) public {
       _warriorIds.increment();
       uint256 newWarriorId = _warriorIds.current(); 
       
       WarriorsLibrary.Warrior memory warrior = WarriorsLibrary.Warrior(name, description, image, race, 0, 0);
-      
       string memory metadata =  WarriorsLibrary._warriorToBase64Metadata(warrior);
     
       _safeMint(msg.sender, newWarriorId);
       _setTokenURI(newWarriorId, metadata);
         warriors[newWarriorId] = warrior;
       
-      emit NewWarriorMinted(msg.sender, newWarriorId, warrior);
+      emit NewWarriorMinted(msg.sender, newWarriorId);
   }
 
   function getWarrior(uint256 tokenId) public view returns (WarriorsLibrary.Warrior memory) {
@@ -55,7 +55,7 @@ contract RpgWarriors is ERC721Enumerable,ERC721URIStorage  {
     _setTokenURI(tokenId, metadata);
     warriors[tokenId] = warrior;
 
-    emit WarriorAddedExperience(msg.sender, tokenId, warrior);
+    emit WarriorAddedExperience(msg.sender, tokenId);
   }
 
   //OVERRIDES

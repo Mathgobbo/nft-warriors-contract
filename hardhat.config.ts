@@ -3,9 +3,12 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
+import "hardhat-gas-reporter";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.9",
+  solidity: {
+    version: "0.8.9",
+  },
   networks: {
     mumbai: {
       url: "https://rpc-mumbai.maticvigil.com",
@@ -14,6 +17,13 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: process.env.POLYGONSCAN_API_KEY,
+  },
+  gasReporter: {
+    enabled: true,
+    currency: "USD",
+    // coinmarketcap: process.env.COINMARKETCAP_API_KEY,
+    token: "MATIC",
+    gasPriceApi: "https://api.polygonscan.com/api?module=proxy&action=eth_gasPrice",
   },
 };
 
