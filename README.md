@@ -1,13 +1,11 @@
-# Sample Hardhat Project
+# RPG WARRIORS NFT 
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This project contains the code for a dynamic NFT collection, called RPG Warriors.
+It is deployed in the Polygon Mumbai testnet, and everyone can mint your own RPG Warrior.
 
-Try running some of the following tasks:
+The contract is verified and you can [see it in polygonscan here](https://mumbai.polygonscan.com/address/0x682D591ABdBDb6aEeE9ee292cfE2364659FC4Ee8).
 
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
+It was built using Hardhat, with unit tests and Typescript.
+
+
+

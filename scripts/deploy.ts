@@ -14,7 +14,7 @@ async function main() {
     "https://ipfs.io/ipfs/QmdkKAztZjFNPevFZQQNiG8eTW1gqecHmD92zeMXkT8vdK",
     2
   );
-
+  console.log("GAS USED FOR CREATE WARRIOR:", (await warrior1.wait()).gasUsed);
   console.log("OWNER BALANCE");
   const ownerBalance = await rpgWarriors.balanceOf(owner.address);
 
@@ -31,7 +31,7 @@ async function main() {
     console.log(await rpgWarriors.tokenURI(tokenId));
     console.log(await rpgWarriors.getWarrior(tokenId));
     console.log("ADDING 3000 exp to legolas");
-    await rpgWarriors.addExperienceToWarrior(tokenId, 3000);
+    console.log(await (await (await rpgWarriors.addExperienceToWarrior(tokenId, 3000)).wait()).gasUsed);
     console.log(await rpgWarriors.tokenURI(tokenId));
     console.log(await rpgWarriors.getWarrior(tokenId));
 
