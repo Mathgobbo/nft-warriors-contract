@@ -24,11 +24,11 @@ contract RpgWarriors is ERC721Enumerable,ERC721URIStorage  {
 
   constructor() ERC721 ("RpgWarriorsTest", "RPGWT") {}
 
-  function createWarrior(string memory name, string memory description, string memory image, WarriorsLibrary.WarriorRaces race) public {
+  function createWarrior(string memory name, string memory description, string memory image, WarriorsLibrary.WarriorRaces race, WarriorsLibrary.WarriorClasses wClass) public {
       _warriorIds.increment();
       uint256 newWarriorId = _warriorIds.current(); 
       
-      WarriorsLibrary.Warrior memory warrior = WarriorsLibrary.Warrior(name, description, image, race, 0, 0);
+      WarriorsLibrary.Warrior memory warrior = WarriorsLibrary._getInitialWarrior(name, description, image, race, wClass);
       string memory metadata =  WarriorsLibrary._warriorToBase64Metadata(warrior);
     
       _safeMint(msg.sender, newWarriorId);

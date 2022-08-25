@@ -12,7 +12,8 @@ async function main() {
     "Legolas",
     "The best archer",
     "https://ipfs.io/ipfs/QmdkKAztZjFNPevFZQQNiG8eTW1gqecHmD92zeMXkT8vdK",
-    2
+    2,
+    3
   );
   console.log("GAS USED FOR CREATE WARRIOR:", (await warrior1.wait()).gasUsed);
   console.log("OWNER BALANCE");

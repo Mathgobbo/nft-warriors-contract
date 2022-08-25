@@ -11,7 +11,8 @@ describe("RPG Warriors Test", () => {
       "Legolas",
       "The best Elf Archer",
       "https://ipfs.io/ipfs/QmdkKAztZjFNPevFZQQNiG8eTW1gqecHmD92zeMXkT8vdK",
-      2
+      2,
+      3
     );
     await tx.wait();
   };
